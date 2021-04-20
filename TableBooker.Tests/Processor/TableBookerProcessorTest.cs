@@ -5,6 +5,13 @@ namespace TableBooker.Tests.Processor
 {
     public class TableBookerProcessorTest
     {
+        private readonly TableBookerProcessor _processor;
+
+        public TableBookerProcessorTest()
+        {
+            _processor = new TableBookerProcessor();
+        }
+
         [Fact]
         public void ShouldReturnTheSameDataEntered()
         {
@@ -16,8 +23,6 @@ namespace TableBooker.Tests.Processor
                 BookerDate = new DateTime(2021, 10, 15),
                 Email = "tekuzeros@tekus.co"
             };
-
-            var _processor = new TableBookerProcessor();
 
             //Act
             var result = _processor.BookTable(_request);
@@ -33,9 +38,6 @@ namespace TableBooker.Tests.Processor
         [Fact]
         public void ShouldThorwArgumentNullExceptionIfRequestArgumentIsNull()
         {
-            //Arrange
-            var _processor = new TableBookerProcessor();
-
             //Act
             var exception = Assert.Throws<ArgumentNullException>(() => _processor.BookTable(null));
 
