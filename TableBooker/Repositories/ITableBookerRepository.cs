@@ -2,6 +2,6 @@
 {
     public interface ITableBookerRepository
     {
-        TableBooker Save(TableBooker tableBooker);
+        TableBooking Save(TableBooking tableBooker);
     }
 }

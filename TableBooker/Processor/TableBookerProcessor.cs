@@ -10,13 +10,13 @@ namespace TableBooker
         {
             _tableBookerRepository = tableBookerRepository;
         }
-        public TableBooker BookTable(TableBooker request)
+        public TableBooking BookTable(TableBooking request)
         {
             if (request == null) throw new ArgumentNullException("request");
 
             _tableBookerRepository.Save(request);
 
-            return new TableBooker
+            return new TableBooking
             {
                 Name = request.Name,
                 LastName = request.LastName,

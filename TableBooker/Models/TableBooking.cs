@@ -2,7 +2,7 @@
 
 namespace TableBooker
 {
-    public class TableBooker
+    public class TableBooking
     {
         public string Name { get; set; }
         public string LastName { get; set; }

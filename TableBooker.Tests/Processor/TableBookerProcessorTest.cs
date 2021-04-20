@@ -21,7 +21,7 @@ namespace TableBooker.Tests.Processor
         public void ShouldReturnTheSameDataEntered()
         {
             //Arrange
-            var _request = new TableBooker
+            var _request = new TableBooking
             {
                 Name = "Pedro",
                 LastName = "Díaz",
@@ -54,7 +54,7 @@ namespace TableBooker.Tests.Processor
         public void ShouldSaveTableBookerOnDataBase()
         {
             //Arrange
-            var _request = new TableBooker
+            var _request = new TableBooking
             {
                 Name = "Pedro",
                 LastName = "Díaz",
@@ -62,10 +62,10 @@ namespace TableBooker.Tests.Processor
                 Email = "tekuzeros@tekus.co"
             };
 
-            TableBooker savedTableBooker = null;
+            TableBooking savedTableBooker = null;
 
-            _tableBookerRepository.Setup(repository => repository.Save(It.IsAny<TableBooker>()))
-                .Callback<TableBooker>(tableBooker =>
+            _tableBookerRepository.Setup(repository => repository.Save(It.IsAny<TableBooking>()))
+                .Callback<TableBooking>(tableBooker =>
                     savedTableBooker = tableBooker
                 );
 
@@ -73,7 +73,7 @@ namespace TableBooker.Tests.Processor
             var result = _processor.BookTable(_request);
 
             //Asserts
-            _tableBookerRepository.Verify(repository => repository.Save(It.IsAny<TableBooker>()), Times.Once);
+            _tableBookerRepository.Verify(repository => repository.Save(It.IsAny<TableBooking>()), Times.Once);
 
             Assert.NotNull(result);
             Assert.Equal(savedTableBooker.Name, result.Name);
