@@ -29,5 +29,18 @@ namespace TableBooker.Tests.Processor
             Assert.Equal(_request.BookerDate, result.BookerDate);
             Assert.Equal(_request.Email, result.Email);
         }
+
+        [Fact]
+        public void ShouldThorwArgumentNullExceptionIfRequestArgumentIsNull()
+        {
+            //Arrange
+            var _processor = new TableBookerProcessor();
+
+            //Act
+            var exception = Assert.Throws<ArgumentNullException>(() => _processor.BookTable(null));
+
+            //Asserts
+            Assert.Equal("request", exception.ParamName);
+        }
     }
 }
