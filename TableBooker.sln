@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TableBooker.Tests", "TableBooker.Tests", "{E970F7C5-1B83-4ECA-92E4-6C8879CBDA39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TableBooker", "TableBooker", "{E539254A-53FD-4B1A-9660-858F8B0341E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableBooker.Tests", "TableBooker.Tests\TableBooker.Tests.csproj", "{A931F509-C07F-48F0-990B-8C883B7041AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableBooker", "TableBooker\TableBooker.csproj", "{31CAD0EA-6250-456C-8460-A9BF4F62066B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A931F509-C07F-48F0-990B-8C883B7041AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A931F509-C07F-48F0-990B-8C883B7041AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A931F509-C07F-48F0-990B-8C883B7041AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A931F509-C07F-48F0-990B-8C883B7041AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CAD0EA-6250-456C-8460-A9BF4F62066B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CAD0EA-6250-456C-8460-A9BF4F62066B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CAD0EA-6250-456C-8460-A9BF4F62066B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CAD0EA-6250-456C-8460-A9BF4F62066B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A931F509-C07F-48F0-990B-8C883B7041AA} = {E970F7C5-1B83-4ECA-92E4-6C8879CBDA39}
+		{31CAD0EA-6250-456C-8460-A9BF4F62066B} = {E539254A-53FD-4B1A-9660-858F8B0341E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A97B823-9DBD-4D57-B636-6DB88656A7F3}
