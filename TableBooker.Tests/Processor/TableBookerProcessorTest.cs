@@ -8,10 +8,13 @@ namespace TableBooker.Tests.Processor
     public class TableBookerProcessorTest
     {
         private readonly TableBookerProcessor _processor;
+        private Mock<ITableBookerRepository> _tableBookerRepository;
 
         public TableBookerProcessorTest()
         {
-            _processor = new TableBookerProcessor();
+            _tableBookerRepository = new Mock<ITableBookerRepository>();
+
+            _processor = new TableBookerProcessor(_tableBookerRepository.Object);
         }
 
         [Fact]
@@ -61,9 +64,7 @@ namespace TableBooker.Tests.Processor
 
             TableBooker savedTableBooker = null;
 
-            var tableBookerRepository = new Mock<TableBookerRepository>();
-
-            tableBookerRepository.Setup(repository => repository.Save(It.IsAny<TableBooker>()))
+            _tableBookerRepository.Setup(repository => repository.Save(It.IsAny<TableBooker>()))
                 .Callback<TableBooker>(tableBooker =>
                     savedTableBooker = tableBooker
                 );
@@ -72,7 +73,7 @@ namespace TableBooker.Tests.Processor
             var result = _processor.BookTable(_request);
 
             //Asserts
-            tableBookerRepository.Verify(repository => repository.Save(It.IsAny<TableBooker>()), Times.Once);
+            _tableBookerRepository.Verify(repository => repository.Save(It.IsAny<TableBooker>()), Times.Once);
 
             Assert.NotNull(result);
             Assert.Equal(savedTableBooker.Name, result.Name);
